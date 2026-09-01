@@ -2,12 +2,11 @@ package finance
 
 import "math"
 
-type Balance struct {
-	Principal float64
-	Rate      float64
-	Period    int64
+type PresentValue struct {
+	CashFlow float64
+	Rate     float64
 }
 
-func (b *Balance) PayBack() float64 {
-	return b.Principal / math.Pow(1+b.Rate, float64(b.Period))
+func (p *PresentValue) SimplePV(timePeriod int) float64 {
+	return p.CashFlow / math.Pow(1+p.Rate, float64(timePeriod))
 }
